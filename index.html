@@ -474,6 +474,22 @@
   .news-item-date .m { font-size: 0.68rem; color: var(--gray-500); text-transform: uppercase; }
   .news-item-content h4 { font-size: 0.88rem; font-weight: 600; color: var(--navy); line-height: 1.4; margin-bottom: 4px; }
   .news-item-content span { font-size: 0.75rem; color: var(--gray-500); }
+  .announcements-archive { background: var(--white); }
+  .announcement-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .announcement-card {
+    background: var(--off-white);
+    border: 1px solid var(--gray-200);
+    border-radius: 8px;
+    padding: 22px;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+  }
+  .announcement-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: var(--mid-blue); }
+  .announcement-meta { display: flex; justify-content: space-between; gap: 12px; align-items: center; margin-bottom: 12px; }
+  .announcement-date { color: var(--gray-500); font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; }
+  .announcement-card h3 { font-family: var(--font-display); color: var(--navy); font-size: 1.05rem; line-height: 1.35; margin-bottom: 10px; }
+  .announcement-card p { color: var(--gray-500); font-size: 0.88rem; line-height: 1.6; }
+  .announcement-card ul { margin: 12px 0 0 18px; color: var(--gray-700); font-size: 0.85rem; line-height: 1.6; }
 
   /* ─── SCHOOLS ──────────────────────────────── */
   .schools-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
@@ -513,6 +529,39 @@
   .type-national { background: var(--gold-light); color: var(--gold); }
   .type-provincial { background: var(--sky); color: var(--blue); }
   .type-primary { background: var(--green-light); color: var(--green); }
+  .schools-directory { background: var(--off-white); }
+  .directory-summary {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 30px;
+  }
+  .directory-stat {
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+  }
+  .directory-stat strong { display: block; color: var(--navy); font-family: var(--font-display); font-size: 2rem; line-height: 1; }
+  .directory-stat span { display: block; color: var(--gray-500); font-size: 0.82rem; margin-top: 8px; }
+  .school-directory-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  .school-directory-item {
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: 8px;
+    padding: 18px;
+    box-shadow: var(--shadow-sm);
+  }
+  .school-directory-item h3 { color: var(--navy); font-family: var(--font-display); font-size: 1rem; margin-bottom: 8px; }
+  .school-directory-item p { color: var(--gray-500); font-size: 0.85rem; line-height: 1.55; }
+  .school-directory-meta { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+  .school-directory-meta span { background: var(--gray-100); color: var(--gray-700); border-radius: 4px; padding: 4px 8px; font-size: 0.75rem; font-weight: 600; }
 
   /* ─── SERVICES ──────────────────────────────── */
   .services-bg { background: var(--navy); color: var(--white); }
@@ -740,6 +789,8 @@
   @media (max-width: 1024px) {
     .services-grid { grid-template-columns: repeat(2, 1fr); }
     .values-grid { grid-template-columns: repeat(2, 1fr); }
+    .announcement-grid { grid-template-columns: repeat(2, 1fr); }
+    .directory-summary { grid-template-columns: repeat(2, 1fr); }
     .footer-grid { grid-template-columns: 1fr 1fr; }
   }
   @media (max-width: 768px) {
@@ -754,7 +805,9 @@
     .vm-grid { grid-template-columns: 1fr; }
     .news-grid { grid-template-columns: 1fr; }
     .news-main .news-card { grid-template-columns: 1fr; }
+    .announcement-grid { grid-template-columns: 1fr; }
     .schools-grid { grid-template-columns: 1fr 1fr; }
+    .school-directory-list { grid-template-columns: 1fr; }
     .downloads-grid { grid-template-columns: 1fr 1fr; }
     .form-row { grid-template-columns: 1fr; }
     .footer-grid { grid-template-columns: 1fr; gap: 28px; }
@@ -764,6 +817,7 @@
   }
   @media (max-width: 540px) {
     .schools-grid { grid-template-columns: 1fr; }
+    .directory-summary { grid-template-columns: 1fr 1fr; }
     .downloads-grid { grid-template-columns: 1fr; }
     .hero-stats { grid-template-columns: 1fr 1fr; gap: 12px; }
     .values-grid { grid-template-columns: 1fr 1fr; }
@@ -995,7 +1049,7 @@
             <span class="news-tag">Workshop</span>
             <h3>Digital Learning Methods Teacher Training Workshop 2025</h3>
             <p>A three-day intensive teacher training program on digital learning methods and modern pedagogy will be held from July 22–24. All teachers from Kinniya Zone schools are invited to participate.</p>
-            <a href="#" class="read-more">Read Full Announcement →</a>
+            <a href="#announcement-digital-learning" class="read-more">Read Full Announcement →</a>
           </div>
         </div>
         <!-- Second news card -->
@@ -1011,7 +1065,7 @@
             <span class="news-tag" style="background:var(--green-light);color:var(--green)">Infrastructure</span>
             <h3>Computer Lab Inauguration at Kinniya Muslim Central College</h3>
             <p>A state-of-the-art computer laboratory funded by the Ministry of Education will be inaugurated at Kinniya Muslim Central College on August 15. The lab features 40 computers with high-speed internet.</p>
-            <a href="#" class="read-more">Read Full Announcement →</a>
+            <a href="#announcement-computer-lab" class="read-more">Read Full Announcement →</a>
           </div>
         </div>
       </div>
@@ -1061,8 +1115,80 @@
             </div>
           </div>
         </div>
-        <a href="#" class="btn btn-primary" style="margin-top:20px;display:inline-flex;font-size:0.85rem">View All Announcements →</a>
+        <a href="#all-announcements" class="btn btn-primary" style="margin-top:20px;display:inline-flex;font-size:0.85rem">View All Announcements →</a>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ALL ANNOUNCEMENTS -->
+<section class="announcements-archive" id="all-announcements">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="section-tag">Information Centre</div>
+      <h2 class="section-title">All Announcements</h2>
+      <p class="section-subtitle">Complete details for latest notices, events, circulars, and office updates from the Kinniya Zonal Education Office</p>
+      <div class="divider"></div>
+    </div>
+    <div class="announcement-grid fade-in">
+      <article class="announcement-card" id="announcement-digital-learning">
+        <div class="announcement-meta">
+          <span class="news-tag">Workshop</span>
+          <span class="announcement-date">22 July 2025</span>
+        </div>
+        <h3>Digital Learning Methods Teacher Training Workshop 2025</h3>
+        <p>A three-day training program will support teachers with digital classroom tools, blended learning methods, online assessment practices, and modern lesson planning.</p>
+        <ul>
+          <li>Date: July 22-24, 2025</li>
+          <li>Participants: Teachers from Kinniya Zone schools</li>
+          <li>Venue and registration details will be shared through school principals</li>
+        </ul>
+      </article>
+      <article class="announcement-card" id="announcement-computer-lab">
+        <div class="announcement-meta">
+          <span class="news-tag" style="background:var(--green-light);color:var(--green)">Infrastructure</span>
+          <span class="announcement-date">15 Aug 2025</span>
+        </div>
+        <h3>Computer Lab Inauguration at Kinniya Muslim Central College</h3>
+        <p>The new computer laboratory will be opened with 40 computers and high-speed internet access to strengthen ICT learning and practical digital skills.</p>
+        <ul>
+          <li>Date: August 15, 2025</li>
+          <li>Location: Kinniya Muslim Central College</li>
+          <li>Funded through Ministry of Education support</li>
+        </ul>
+      </article>
+      <article class="announcement-card">
+        <div class="announcement-meta">
+          <span class="news-tag">Academic</span>
+          <span class="announcement-date">10 July 2025</span>
+        </div>
+        <h3>Grade 5 Scholarship Results - Collection at Zonal Office</h3>
+        <p>School representatives may collect official Grade 5 Scholarship result documents from the Zonal Office during working hours.</p>
+      </article>
+      <article class="announcement-card">
+        <div class="announcement-meta">
+          <span class="news-tag">Sports</span>
+          <span class="announcement-date">05 July 2025</span>
+        </div>
+        <h3>Annual Sports Meet - Registration Deadline Extended</h3>
+        <p>The registration deadline for school participation in the annual zonal sports meet has been extended. Schools should submit finalized entries through the principal.</p>
+      </article>
+      <article class="announcement-card">
+        <div class="announcement-meta">
+          <span class="news-tag">Policy</span>
+          <span class="announcement-date">28 June 2025</span>
+        </div>
+        <h3>New School Uniform Policy - Circular 2025/14</h3>
+        <p>Schools are requested to review Circular 2025/14 and communicate the updated uniform guidance to parents and students.</p>
+      </article>
+      <article class="announcement-card">
+        <div class="announcement-meta">
+          <span class="news-tag">Training</span>
+          <span class="announcement-date">12 June 2025</span>
+        </div>
+        <h3>Principal Leadership Development Programme - Applications Open</h3>
+        <p>Applications are open for the leadership development programme for school principals, focused on administration, planning, and instructional leadership.</p>
+      </article>
     </div>
   </div>
 </section>
@@ -1181,7 +1307,93 @@
       </div>
     </div>
     <div style="text-align:center;margin-top:36px">
-      <a href="#" class="btn btn-primary">View All 45+ Schools →</a>
+      <a href="#all-schools" class="btn btn-primary">View All 45+ Schools →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ALL SCHOOLS -->
+<section class="schools-directory" id="all-schools">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="section-tag green">School Directory</div>
+      <h2 class="section-title">All 45+ Schools Information</h2>
+      <p class="section-subtitle">Summary of schools managed by the Kinniya Zonal Education Office, with key details for the listed institutions</p>
+      <div class="divider"></div>
+    </div>
+    <div class="directory-summary fade-in">
+      <div class="directory-stat">
+        <strong>45+</strong>
+        <span>Total Schools</span>
+      </div>
+      <div class="directory-stat">
+        <strong>1</strong>
+        <span>National School</span>
+      </div>
+      <div class="directory-stat">
+        <strong>20+</strong>
+        <span>Secondary / Provincial Schools</span>
+      </div>
+      <div class="directory-stat">
+        <strong>20+</strong>
+        <span>Primary Schools</span>
+      </div>
+    </div>
+    <div class="school-directory-list fade-in">
+      <article class="school-directory-item">
+        <h3>Kinniya Muslim Central College</h3>
+        <p>Located in Kinniya Town, this national school provides education from Grade 1 to Grade 13 for approximately 1,800 students.</p>
+        <div class="school-directory-meta">
+          <span>National School</span>
+          <span>85 Teachers</span>
+          <span>026 224 5678</span>
+        </div>
+      </article>
+      <article class="school-directory-item">
+        <h3>Kinniya Tamil Vidyalayam</h3>
+        <p>A provincial school in Kinniya North serving Grade 1 to Grade 13 students with academic and co-curricular support.</p>
+        <div class="school-directory-meta">
+          <span>Provincial School</span>
+          <span>62 Teachers</span>
+          <span>026 224 6789</span>
+        </div>
+      </article>
+      <article class="school-directory-item">
+        <h3>Kinniya Maha Vidyalaya</h3>
+        <p>A Grade 1 to Grade 11 provincial school in Kinniya South with approximately 950 students and 48 teachers.</p>
+        <div class="school-directory-meta">
+          <span>Provincial School</span>
+          <span>48 Teachers</span>
+          <span>026 224 7890</span>
+        </div>
+      </article>
+      <article class="school-directory-item">
+        <h3>Kinniya R.C. Primary School</h3>
+        <p>A primary school in Kinniya East serving early grade students from Grade 1 to Grade 5.</p>
+        <div class="school-directory-meta">
+          <span>Primary School</span>
+          <span>18 Teachers</span>
+          <span>026 224 8901</span>
+        </div>
+      </article>
+      <article class="school-directory-item">
+        <h3>Al-Farouk Muslim Mixed School</h3>
+        <p>A provincial mixed school in Kinniya West serving Grade 1 to Grade 11 with around 720 students.</p>
+        <div class="school-directory-meta">
+          <span>Provincial School</span>
+          <span>34 Teachers</span>
+          <span>026 224 9012</span>
+        </div>
+      </article>
+      <article class="school-directory-item">
+        <h3>Kinniya Sinhala Primary School</h3>
+        <p>A primary school in Kinniya Central supporting Grade 1 to Grade 5 learners with foundational education.</p>
+        <div class="school-directory-meta">
+          <span>Primary School</span>
+          <span>16 Teachers</span>
+          <span>026 224 0123</span>
+        </div>
+      </article>
     </div>
   </div>
 </section>
